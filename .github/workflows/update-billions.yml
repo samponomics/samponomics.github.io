@@ -1,0 +1,33 @@
+name: Update Billionaire Net Worths
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Runs daily at 2:00 UTC
+  workflow_dispatch: # Allow manual run from GitHub
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run scraper script
+        run: python .github/scripts/scrape.py
+
+      - name: Commit updated JSON
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add billionaires.json
+          git commit -m "Update billionaire net worths"
+          git push
+        continue-on-error: true
