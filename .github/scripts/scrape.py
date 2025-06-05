@@ -33,7 +33,7 @@ for user_id, name in billionaire_data.items():
                     break
 
     except Exception as e:
-        print(f"❌ Failed to extract for {name}: {e}")
+        print(f"Failed to extract for {name}: {e}")
 
 # Write final output
 with open("billionaires.json", "w") as f:
