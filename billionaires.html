@@ -123,7 +123,7 @@
       <tr onclick="toggleQuote(this)">
         <td class="rank">1</td>
         <td>MattySK</td>
-        <td class="net-worth">$1.1 B</td>
+        <td class="net-worth" id="net-159591">Loading...</td>
         <td>Lottery, Drugs, CEO Jobs</td>
         <td>WTLS 1</td>
       </tr>
@@ -149,5 +149,17 @@
       }
     }
   </script>
+
+<script>
+fetch("billionaires.json")
+  .then(r => r.json())
+  .then(data => {
+    const amount = data["159591"];
+    if (amount) {
+      document.getElementById("net-159591").textContent = "$" + Number(amount).toLocaleString();
+    }
+  });
+</script>
+  
 </body>
 </html>
