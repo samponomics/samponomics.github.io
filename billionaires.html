@@ -161,6 +161,26 @@ fetch("billionaires.json")
   })
   .catch(err => console.error("Failed to fetch JSON:", err));
 </script>
+
+<script>
+fetch("billionaires.json")
+  .then(r => r.json())
+  .then(data => {
+    console.log("Loaded data:", data);
+    const amount = data["159591"];
+    if (amount) {
+      document.getElementById("net-159591").textContent = "$" + Number(amount).toLocaleString();
+    } else {
+      document.getElementById("net-159591").textContent = "Unavailable";
+      console.warn("No data found for 159591");
+    }
+  })
+  .catch(err => {
+    document.getElementById("net-159591").textContent = "Error loading";
+    console.error("Fetch error:", err);
+  });
+</script>
+
   
 </body>
 </html>
