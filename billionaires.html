@@ -9,20 +9,23 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #fff;
-      color: #111;
+      background: #0f1115;
+      color: #f0f0f0;
       padding: 40px;
     }
 
     h1 {
       text-align: center;
-      color: #000;
+      color: #00ffa2;
       margin-bottom: 40px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
+      background-color: #1a1d23;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     th, td {
@@ -31,36 +34,55 @@
     }
 
     th {
-      background-color: #f7f7f7;
-      color: #000;
+      background-color: #111318;
+      color: #00ffa2;
       font-weight: bold;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 2px solid #2e323c;
     }
 
     td {
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #2e323c;
     }
 
     tr:hover {
-      background-color: #f2f2f2;
+      background-color: #2e323c;
       cursor: pointer;
     }
 
     .quote-row {
       display: none;
-      background-color: #fdfdfd;
-      font-style: italic;
-      color: #555;
+      background-color: #121417;
     }
 
     .quote-cell {
-      padding: 16px;
+      padding: 20px;
       border-top: none;
       font-size: 0.95rem;
+      color: #ccc;
     }
 
     .net-worth {
-      color: #007bff;
+      color: #00b7ff;
+    }
+
+    .billionaire-details {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .billionaire-details img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 2px solid #00ffa2;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 0.95rem;
     }
 
     @media (max-width: 768px) {
@@ -71,11 +93,16 @@
       th {
         position: sticky;
         top: 0;
-        background: #f7f7f7;
+        background: #111318;
       }
 
       td {
         padding: 10px;
+      }
+
+      .billionaire-details {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -89,6 +116,7 @@
         <th>Name</th>
         <th>Net Worth</th>
         <th>Source</th>
+        <th>Server</th>
       </tr>
     </thead>
     <tbody>
@@ -97,13 +125,19 @@
         <td>MattySK</td>
         <td class="net-worth">$1.1 B</td>
         <td>Lottery, Drugs, CEO Jobs</td>
+        <td>WTLS 1</td>
       </tr>
       <tr class="quote-row">
-        <td colspan="4" class="quote-cell">
-          “Most of my money came from winning the lottery — 450 million three times — but I also made a fortune producing and selling drugs, and creating CEO jobs.”
+        <td colspan="5" class="quote-cell">
+          <div class="billionaire-details">
+            <img src="https://i.ibb.co/wrZWLY4x/sa-mp-873-Copy.png" alt="Player Image" />
+            <div class="quote-text">
+              “Most of my money came from winning the lottery — 450 million three times — but I also made a fortune producing and selling drugs, and creating CEO jobs.”
+            </div>
+          </div>
         </td>
       </tr>
-      <!-- More billionaires can go here with same structure -->
+      <!-- Add more billionaire rows below -->
     </tbody>
   </table>
 
