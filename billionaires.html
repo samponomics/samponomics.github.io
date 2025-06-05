@@ -158,7 +158,9 @@ fetch("billionaires.json")
     if (amount) {
       document.getElementById("net-159591").textContent = "$" + Number(amount).toLocaleString();
     }
-  });
+  })
+  .catch(err => console.error("Failed to fetch JSON:", err));
+</script>;
 </script>
   
 </body>
