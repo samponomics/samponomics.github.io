@@ -123,7 +123,7 @@
       <tr onclick="toggleQuote(this)">
         <td class="rank">1</td>
         <td>MattySK</td>
-        <td class="net-worth" id="net-159591">Loading...</td>
+        <td class="net-worth">$1.1 B</td>
         <td>Lottery, Drugs, CEO Jobs</td>
         <td>WTLS 1</td>
       </tr>
@@ -149,38 +149,5 @@
       }
     }
   </script>
-
-<script>
-fetch("billionaires.json")
-  .then(r => r.json())
-  .then(data => {
-    const amount = data["159591"];
-    if (amount) {
-      document.getElementById("net-159591").textContent = "$" + Number(amount).toLocaleString();
-    }
-  })
-  .catch(err => console.error("Failed to fetch JSON:", err));
-</script>
-
-<script>
-fetch("billionaires.json")
-  .then(r => r.json())
-  .then(data => {
-    console.log("Loaded data:", data);
-    const amount = data["159591"];
-    if (amount) {
-      document.getElementById("net-159591").textContent = "$" + Number(amount).toLocaleString();
-    } else {
-      document.getElementById("net-159591").textContent = "Unavailable";
-      console.warn("No data found for 159591");
-    }
-  })
-  .catch(err => {
-    document.getElementById("net-159591").textContent = "Error loading";
-    console.error("Fetch error:", err);
-  });
-</script>
-
-  
 </body>
 </html>
