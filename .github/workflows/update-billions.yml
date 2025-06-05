@@ -2,12 +2,13 @@ name: Update Billionaire Net Worths
 
 on:
   schedule:
-    - cron: '0 2 * * *' # Runs daily at 2:00 UTC
-  workflow_dispatch: # Allow manual run from GitHub
+    - cron: '0 2 * * *'  # Runs every day at 2:00 AM UTC
+  workflow_dispatch:      # Allows manual triggering
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -17,8 +18,11 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install requests beautifulsoup4
+      - name: Install OCR dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y tesseract-ocr libtesseract-dev
+          pip install pytesseract pillow requests
 
       - name: Run scraper script
         run: python .github/scripts/scrape.py
@@ -30,4 +34,4 @@ jobs:
           git add billionaires.json
           git commit -m "Update billionaire net worths"
           git push
-        continue-on-error: true
+        continue-on-error: true  # Avoid failure if no changes were made
