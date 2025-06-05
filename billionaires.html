@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samponomics | Billionaires</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #000;
+      margin-bottom: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f7f7f7;
+      color: #000;
+      font-weight: bold;
+      border-bottom: 2px solid #ccc;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
+
+    .quote-row {
+      display: none;
+      background-color: #fdfdfd;
+      font-style: italic;
+      color: #555;
+    }
+
+    .quote-cell {
+      padding: 16px;
+      border-top: none;
+      font-size: 0.95rem;
+    }
+
+    .net-worth {
+      color: #007bff;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        background: #f7f7f7;
+      }
+
+      td {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>WTLS SAMP Billionaires</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Net Worth</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr onclick="toggleQuote(this)">
+        <td class="rank">1</td>
+        <td>MattySK</td>
+        <td class="net-worth">$1.35 B</td>
+        <td>Lottery, Drugs, CEO Jobs</td>
+      </tr>
+      <tr class="quote-row">
+        <td colspan="4" class="quote-cell">
+          “Most of my money came from winning the lottery — 450 million three times — but I also made a fortune producing and selling drugs, and creating CEO jobs.”
+        </td>
+      </tr>
+      <!-- More billionaires can go here with same structure -->
+    </tbody>
+  </table>
+
+  <script>
+    function toggleQuote(row) {
+      const next = row.nextElementSibling;
+      if (next && next.classList.contains('quote-row')) {
+        next.style.display = next.style.display === 'table-row' ? 'none' : 'table-row';
+      }
+    }
+  </script>
+</body>
+</html>
